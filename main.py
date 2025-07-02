@@ -40,16 +40,18 @@ clock = pg.time.Clock()
 
 rect_1 = pg.Rect(100,400, 50,80)
 
-dante = pg.image.load("doomguybot-dante-dance.gif")
-dante = pg.transform.scale(dante, (200, 300))
+dante = pg.image.load("dante.png")
+dante = pg.transform.scale(dante, (600, 500))
 dante_rect = dante.get_rect(center=(size[0] // 2, size[1] // 2))
+vergil = pg.image.load("vergil.png")
+vergil = pg.transform.scale(vergil, (400, 300))
+vergil_rect = vergil.get_rect(center=(size[0] // 2, size[1] // 2))
 
-
-background = pg.image.load("Фон для игры на pygame.png")
+background = pg.image.load("maxresdefault.jpg")
 background = pg.transform.scale(background, size)
-pg.mixer.music.load("Ева - Vintage (Lonely Lonely TikTok Version x Dante).mp3")
+pg.mixer.music.load("I AM THE STORM THAT IS APPROACHING (mp3cut.net).mp3")
 
-pg.mixer.music.set_volume(0.1)
+pg.mixer.music.set_volume(0.6)
 
 # pg.mixer.music.play()
 sound = pg.mixer.Sound("pder.mp3")
@@ -82,6 +84,9 @@ while True:
     mouse_keys = pg.mouse.get_pressed()
     if mouse_keys[0]:
         dante_rect.center = mouse_pos
+    if mouse_keys[2]:
+        vergil_rect.center = mouse_pos
+
 
 
 
@@ -90,6 +95,7 @@ while True:
 
     screen.blit(dante, dante_rect )
     # pg.draw.rect(screen,pg.Color('black'),small_rect)
+    screen.blit(vergil, vergil_rect)
 
 
 
